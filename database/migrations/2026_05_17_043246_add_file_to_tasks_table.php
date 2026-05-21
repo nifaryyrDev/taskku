@@ -7,26 +7,42 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run migrations.
+     * Jalankan migration.
      */
     public function up(): void
     {
-        Schema::table('tasks', function (Blueprint $table) {
+        // Cek apakah kolom file belum ada
+        if (!Schema::hasColumn('tasks', 'file')) {
 
-            $table->string('file')->nullable();
+            Schema::table('tasks', function (Blueprint $table) {
 
-        });
+                /*
+                |--------------------------------------------------------------------------
+                | Upload File PDF
+                |--------------------------------------------------------------------------
+                */
+
+                $table->string('file')
+                      ->nullable()
+                      ->after('title');
+
+            });
+        }
     }
 
     /**
-     * Reverse migrations.
+     * Hapus migration.
      */
     public function down(): void
     {
-        Schema::table('tasks', function (Blueprint $table) {
+        // Cek apakah kolom file ada
+        if (Schema::hasColumn('tasks', 'file')) {
 
-            $table->dropColumn('file');
+            Schema::table('tasks', function (Blueprint $table) {
 
-        });
+                $table->dropColumn('file');
+
+            });
+        }
     }
 };
