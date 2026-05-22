@@ -11,7 +11,7 @@ use App\Http\Controllers\TaskController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 /*
@@ -37,7 +37,6 @@ Route::middleware(['auth'])->group(function () {
     |--------------------------------------------------------------------------
     */
 
-    // User upload tugas PDF
     Route::post('/tasks', [TaskController::class, 'store'])
         ->name('tasks.store');
 
@@ -47,7 +46,6 @@ Route::middleware(['auth'])->group(function () {
     |--------------------------------------------------------------------------
     */
 
-    // Admin kirim tugas ke user
     Route::post('/admin/tasks', [TaskController::class, 'adminStore'])
         ->name('admin.tasks.store');
 
@@ -75,11 +73,5 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])
         ->name('profile.destroy');
 });
-
-/*
-|--------------------------------------------------------------------------
-| Auth
-|--------------------------------------------------------------------------
-*/
 
 require __DIR__.'/auth.php';
