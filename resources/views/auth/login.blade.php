@@ -12,7 +12,6 @@
 
     <div class="w-full max-w-md bg-white rounded-[35px] shadow-2xl p-8">
 
-        {{-- Error --}}
         @if ($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-2xl mb-6">
                 <ul class="list-disc ml-5">
@@ -23,7 +22,6 @@
             </div>
         @endif
 
-        {{-- Logo --}}
         <div class="flex justify-center mb-5">
             <div class="bg-blue-100 p-5 rounded-full">
 
@@ -47,7 +45,6 @@
             </div>
         </div>
 
-        {{-- Title --}}
         <h1 class="text-5xl font-bold text-center text-gray-800">
             TaskKu
         </h1>
@@ -56,11 +53,9 @@
             Welcome back to your Academic Zen.
         </p>
 
-        {{-- Login Form --}}
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            {{-- Email --}}
             <div class="mb-6">
 
                 <label class="block text-sm font-semibold text-gray-700 mb-2">
@@ -78,7 +73,6 @@
 
             </div>
 
-            {{-- Password --}}
             <div class="mb-4">
 
                 <div class="flex justify-between mb-2">
@@ -105,7 +99,6 @@
 
             </div>
 
-            {{-- Remember --}}
             <div class="flex items-center mb-6">
 
                 <input
@@ -120,7 +113,6 @@
 
             </div>
 
-            {{-- Button --}}
             <button
                 type="submit"
                 class="w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-full text-2xl font-semibold shadow-lg transition duration-300"
@@ -128,7 +120,6 @@
                 Masuk
             </button>
 
-            {{-- Register --}}
             <div class="text-center mt-8 text-gray-600">
 
                 Belum punya akun?
@@ -142,7 +133,6 @@
 
         </form>
 
-        {{-- Footer --}}
         <div class="flex justify-center gap-6 text-sm text-gray-400 mt-10">
             <span>Panduan</span>
             <span>Privasi</span>
