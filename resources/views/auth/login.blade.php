@@ -5,44 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskKu Login</title>
 
-    <link rel="stylesheet" href="/build/assets/app-EsFTbYNn.css">
+    {{-- CSS BUILD --}}
+    <link rel="stylesheet" href="/build/assets/app-CIPofioy.css">
 </head>
 
-<body class="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50 flex items-center justify-center px-4 py-10">
+<body class="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-50 flex items-center justify-center px-4 py-10 overflow-hidden">
 
-    <div class="w-full max-w-5xl bg-white rounded-[40px] shadow-2xl overflow-hidden grid md:grid-cols-2">
+    {{-- BACKGROUND EFFECT --}}
+    <div class="absolute top-0 left-0 w-96 h-96 bg-blue-300 opacity-20 rounded-full blur-3xl"></div>
 
-        <!-- LEFT SIDE -->
-        <div class="hidden md:flex flex-col justify-center items-center bg-blue-600 text-white p-12 relative overflow-hidden">
+    <div class="absolute bottom-0 right-0 w-96 h-96 bg-sky-300 opacity-20 rounded-full blur-3xl"></div>
 
-            <div class="absolute top-0 left-0 w-72 h-72 bg-blue-400 rounded-full opacity-20 -translate-x-20 -translate-y-20"></div>
+    {{-- MAIN CARD --}}
+    <div class="relative w-full max-w-6xl bg-white/80 backdrop-blur-xl shadow-2xl rounded-[40px] overflow-hidden grid lg:grid-cols-2 border border-white/40">
 
-            <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-300 rounded-full opacity-20 translate-x-20 translate-y-20"></div>
+        {{-- LEFT SECTION --}}
+        <div class="hidden lg:flex flex-col justify-center items-center bg-gradient-to-br from-blue-600 to-blue-800 text-white p-16 relative overflow-hidden">
+
+            {{-- CIRCLE EFFECT --}}
+            <div class="absolute w-96 h-96 bg-white/10 rounded-full top-[-100px] left-[-100px]"></div>
+
+            <div class="absolute w-96 h-96 bg-white/10 rounded-full bottom-[-120px] right-[-120px]"></div>
 
             <div class="relative z-10 text-center">
 
-                <div class="w-28 h-28 mx-auto bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-6xl shadow-lg mb-8">
+                {{-- LOGO --}}
+                <div class="w-32 h-32 mx-auto rounded-full bg-white/20 backdrop-blur-lg flex items-center justify-center text-7xl shadow-2xl mb-10 border border-white/20">
                     🎓
                 </div>
 
-                <h1 class="text-5xl font-extrabold mb-6">
+                {{-- TITLE --}}
+                <h1 class="text-6xl font-black mb-6 tracking-wide">
                     TaskKu
                 </h1>
 
-                <p class="text-lg leading-relaxed text-blue-100 max-w-sm">
-                    Organize your academic life easily,
-                    upload assignments, manage tasks,
-                    and stay productive every day.
+                {{-- DESCRIPTION --}}
+                <p class="text-blue-100 text-lg leading-8 max-w-md mx-auto">
+                    Organize your academic life,
+                    upload assignments,
+                    manage schedules,
+                    and boost productivity
+                    every single day.
                 </p>
 
-                <div class="mt-10 flex justify-center gap-4">
+                {{-- FEATURE BOX --}}
+                <div class="grid grid-cols-2 gap-5 mt-12">
 
-                    <div class="bg-white/20 px-5 py-3 rounded-2xl backdrop-blur-md">
-                        📚 Study
+                    <div class="bg-white/10 border border-white/10 rounded-3xl p-5 backdrop-blur-lg shadow-lg">
+                        <div class="text-4xl mb-3">📚</div>
+                        <h3 class="font-bold text-lg">
+                            Study
+                        </h3>
+                        <p class="text-sm text-blue-100 mt-2">
+                            Learn effectively and organize your materials.
+                        </p>
                     </div>
 
-                    <div class="bg-white/20 px-5 py-3 rounded-2xl backdrop-blur-md">
-                        ✅ Tasks
+                    <div class="bg-white/10 border border-white/10 rounded-3xl p-5 backdrop-blur-lg shadow-lg">
+                        <div class="text-4xl mb-3">✅</div>
+                        <h3 class="font-bold text-lg">
+                            Tasks
+                        </h3>
+                        <p class="text-sm text-blue-100 mt-2">
+                            Manage all assignments in one place.
+                        </p>
                     </div>
 
                 </div>
@@ -51,49 +77,53 @@
 
         </div>
 
-        <!-- RIGHT SIDE -->
-        <div class="p-8 md:p-12 flex flex-col justify-center">
+        {{-- RIGHT SECTION --}}
+        <div class="p-8 md:p-14 flex flex-col justify-center">
 
-            <!-- ERROR -->
-            @if ($errors->any())
-                <div class="mb-6 bg-red-100 border border-red-300 text-red-700 px-5 py-4 rounded-2xl">
+            {{-- MOBILE LOGO --}}
+            <div class="lg:hidden flex justify-center mb-8">
 
-                    <ul class="list-disc ml-5 space-y-1">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-
-                </div>
-            @endif
-
-            <!-- MOBILE LOGO -->
-            <div class="md:hidden flex justify-center mb-6">
-
-                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-4xl shadow">
+                <div class="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center text-5xl shadow-xl">
                     🎓
                 </div>
 
             </div>
 
-            <!-- TITLE -->
-            <h2 class="text-4xl font-bold text-gray-800 mb-2">
+            {{-- ERROR --}}
+            @if ($errors->any())
+
+                <div class="mb-6 bg-red-100 border border-red-300 text-red-700 px-5 py-4 rounded-2xl shadow">
+
+                    <ul class="space-y-2 list-disc ml-5">
+
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+
+                    </ul>
+
+                </div>
+
+            @endif
+
+            {{-- HEADING --}}
+            <h2 class="text-5xl font-black text-gray-800 leading-tight">
                 Welcome Back 👋
             </h2>
 
-            <p class="text-gray-500 mb-8">
+            <p class="text-gray-500 mt-3 mb-10 text-lg">
                 Login to continue your productivity journey with TaskKu.
             </p>
 
-            <!-- FORM -->
-            <form method="POST" action="{{ route('login') }}" class="space-y-6">
+            {{-- FORM --}}
+            <form method="POST" action="{{ route('login') }}" class="space-y-7">
                 @csrf
 
-                <!-- EMAIL -->
+                {{-- EMAIL --}}
                 <div>
 
-                    <label class="block text-sm font-semibold text-gray-700 mb-2">
-                        Gmail
+                    <label class="block text-sm font-bold text-gray-700 mb-3">
+                        Gmail Address
                     </label>
 
                     <input
@@ -103,25 +133,27 @@
                         required
                         autofocus
                         placeholder="Enter your gmail"
-                        class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                        class="w-full rounded-2xl border border-gray-300 bg-white px-5 py-4 text-gray-700 shadow-sm focus:outline-none focus:ring-4 focus:ring-blue-200 focus:border-blue-500 transition duration-300"
                     >
 
                 </div>
 
-                <!-- PASSWORD -->
+                {{-- PASSWORD --}}
                 <div>
 
-                    <div class="flex justify-between items-center mb-2">
+                    <div class="flex items-center justify-between mb-3">
 
-                        <label class="text-sm font-semibold text-gray-700">
+                        <label class="text-sm font-bold text-gray-700">
                             Password
                         </label>
 
                         @if (Route::has('password.request'))
+
                             <a href="{{ route('password.request') }}"
-                               class="text-sm text-blue-600 hover:underline font-medium">
+                               class="text-sm text-blue-600 hover:text-blue-800 hover:underline font-semibold transition">
                                 Forgot Password?
                             </a>
+
                         @endif
 
                     </div>
@@ -131,15 +163,15 @@
                         name="password"
                         required
                         placeholder="Enter your password"
-                        class="w-full border border-gray-300 rounded-2xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                        class="w-full rounded-2xl border border-gray-300 bg-white px-5 py-4 text-gray-700 shadow-sm focus:outline-none focus:ring-4 focus:ring-blue-200 focus:border-blue-500 transition duration-300"
                     >
 
                 </div>
 
-                <!-- REMEMBER -->
+                {{-- OPTIONS --}}
                 <div class="flex items-center justify-between">
 
-                    <label class="flex items-center gap-2 text-sm text-gray-600">
+                    <label class="flex items-center gap-3 text-sm text-gray-600">
 
                         <input
                             type="checkbox"
@@ -151,27 +183,27 @@
 
                     </label>
 
-                    <span class="text-sm text-gray-400">
-                        Secure Login
+                    <span class="text-sm text-green-600 font-semibold">
+                        🔒 Secure Login
                     </span>
 
                 </div>
 
-                <!-- BUTTON -->
+                {{-- BUTTON --}}
                 <button
                     type="submit"
-                    class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl font-semibold text-lg shadow-lg transition duration-300"
+                    class="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg font-bold shadow-xl transition duration-300 hover:scale-[1.01]"
                 >
                     Login Now
                 </button>
 
-                <!-- REGISTER -->
-                <div class="text-center text-gray-600 pt-2">
+                {{-- REGISTER --}}
+                <div class="text-center pt-2 text-gray-600">
 
                     Don’t have an account?
 
                     <a href="{{ route('register') }}"
-                       class="text-blue-600 font-semibold hover:underline">
+                       class="text-blue-600 font-bold hover:underline">
                         Register
                     </a>
 
@@ -179,18 +211,18 @@
 
             </form>
 
-            <!-- FOOTER -->
-            <div class="flex justify-center gap-6 text-sm text-gray-400 mt-10">
+            {{-- FOOTER --}}
+            <div class="flex justify-center gap-6 mt-12 text-sm text-gray-400">
 
-                <span class="hover:text-blue-500 cursor-pointer transition">
+                <span class="hover:text-blue-500 transition cursor-pointer">
                     Panduan
                 </span>
 
-                <span class="hover:text-blue-500 cursor-pointer transition">
+                <span class="hover:text-blue-500 transition cursor-pointer">
                     Privasi
                 </span>
 
-                <span class="hover:text-blue-500 cursor-pointer transition">
+                <span class="hover:text-blue-500 transition cursor-pointer">
                     Bantuan
                 </span>
 
