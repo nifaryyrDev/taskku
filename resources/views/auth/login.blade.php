@@ -8,12 +8,13 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gradient-to-br from-blue-50 to-gray-100 min-h-screen flex items-center justify-center px-4">
+<body class="bg-gradient-to-br from-blue-100 to-blue-50 min-h-screen flex items-center justify-center px-4">
 
-    <div class="w-full max-w-md bg-white rounded-[35px] shadow-2xl p-8">
+    <div class="w-full max-w-md bg-white rounded-3xl shadow-2xl p-8">
 
+        {{-- Error --}}
         @if ($errors->any())
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-2xl mb-6">
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl mb-5">
                 <ul class="list-disc ml-5">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -22,41 +23,30 @@
             </div>
         @endif
 
-        <div class="flex justify-center mb-5">
-            <div class="bg-blue-100 p-5 rounded-full">
+        {{-- Logo --}}
+        <div class="flex justify-center mb-6">
 
-                <svg xmlns="http://www.w3.org/2000/svg"
-                     class="w-8 h-8 text-blue-600"
-                     fill="none"
-                     viewBox="0 0 24 24"
-                     stroke="currentColor">
-
-                    <path stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 14l9-5-9-5-9 5 9 5z"/>
-
-                    <path stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 14l6.16-3.422A12.083 12.083 0 0112 20.055a12.083 12.083 0 01-6.16-9.477L12 14z"/>
-                </svg>
-
+            <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-4xl shadow">
+                🎓
             </div>
+
         </div>
 
-        <h1 class="text-5xl font-bold text-center text-gray-800">
+        {{-- Title --}}
+        <h1 class="text-4xl font-bold text-center text-gray-800">
             TaskKu
         </h1>
 
-        <p class="text-center text-gray-500 mt-3 mb-10">
+        <p class="text-center text-gray-500 mt-2 mb-8">
             Welcome back to your Academic Zen.
         </p>
 
+        {{-- Form --}}
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
-            <div class="mb-6">
+            {{-- Email --}}
+            <div class="mb-5">
 
                 <label class="block text-sm font-semibold text-gray-700 mb-2">
                     Gmail
@@ -68,12 +58,13 @@
                     value="{{ old('email') }}"
                     required
                     autofocus
-                    class="w-full rounded-full border border-gray-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
 
             </div>
 
-            <div class="mb-4">
+            {{-- Password --}}
+            <div class="mb-5">
 
                 <div class="flex justify-between mb-2">
 
@@ -83,7 +74,7 @@
 
                     @if (Route::has('password.request'))
                         <a href="{{ route('password.request') }}"
-                           class="text-sm text-blue-600 font-semibold hover:underline">
+                           class="text-sm text-blue-600 hover:underline">
                             Forgot?
                         </a>
                     @endif
@@ -94,17 +85,18 @@
                     type="password"
                     name="password"
                     required
-                    class="w-full rounded-full border border-gray-300 px-5 py-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    class="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
 
             </div>
 
+            {{-- Remember --}}
             <div class="flex items-center mb-6">
 
                 <input
                     type="checkbox"
                     name="remember"
-                    class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500"
+                    class="rounded border-gray-300 text-blue-600"
                 >
 
                 <span class="ml-2 text-sm text-gray-600">
@@ -113,14 +105,16 @@
 
             </div>
 
+            {{-- Button --}}
             <button
                 type="submit"
-                class="w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-full text-2xl font-semibold shadow-lg transition duration-300"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition duration-300"
             >
                 Masuk
             </button>
 
-            <div class="text-center mt-8 text-gray-600">
+            {{-- Register --}}
+            <div class="text-center mt-6 text-sm text-gray-600">
 
                 Belum punya akun?
 
@@ -133,7 +127,8 @@
 
         </form>
 
-        <div class="flex justify-center gap-6 text-sm text-gray-400 mt-10">
+        {{-- Footer --}}
+        <div class="flex justify-center gap-5 text-xs text-gray-400 mt-8">
             <span>Panduan</span>
             <span>Privasi</span>
             <span>Bantuan</span>
